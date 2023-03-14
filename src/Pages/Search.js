@@ -74,7 +74,7 @@ class Search extends Component {
         {buttonActivated ? <Carregando /> : ''}
         {(!loading && artistResult.length > 0) ? artistResult.map((artist) => (
           <AlbumCard
-            key={ artist.collectionName }
+            key={ artist.collectionId }
             coverImg={ artist.artworkUrl100 }
             albumName={ artist.collectionName }
             artistName={ artist.artistName }
