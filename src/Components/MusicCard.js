@@ -8,6 +8,7 @@ class MusicCard extends Component {
     checked: false,
     loading: false,
     favoritedSongs: [],
+    manualCheck: false,
   };
 
   async componentDidMount() {
@@ -17,7 +18,7 @@ class MusicCard extends Component {
   handleChecked = async ({ target }) => {
     const { checked } = this.state;
     if (target.checked && checked === false) {
-      this.setState({ loading: true, checked: true });
+      this.setState({ loading: true, checked: true, manualCheck: true });
       await addSong(this.props);
       this.setState({ loading: false });
     } else {
@@ -29,7 +30,7 @@ class MusicCard extends Component {
   render() {
     console.log(this.props);
     const { trackName, previewUrl, trackId } = this.props;
-    const { loading, favoritedSongs } = this.state;
+    const { loading, favoritedSongs, manualCheck } = this.state;
     return (
       <div>
         <p>{ trackName }</p>
@@ -45,7 +46,11 @@ class MusicCard extends Component {
             type="checkbox"
             name="favorite"
             onChange={ this.handleChecked }
-            checked={ favoritedSongs.some((music) => music.trackName === trackName) }
+            checked={
+              manualCheck
+                ? true
+                : favoritedSongs.some((music) => music.trackName === trackName)
+            }
 
           />
         </label>
