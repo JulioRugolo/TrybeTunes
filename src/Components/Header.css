@@ -1,0 +1,47 @@
+.header {
+  align-items: center;
+  background-color: rgb(104, 201, 0);
+  display: flex;
+  height: 60px;
+  justify-content: space-evenly;
+}
+
+.navbar {
+  gap: 20px;
+  padding: 20px;
+}
+
+.link {
+  color: black;
+  font-weight: 700;
+  margin-left: 100px;
+  text-decoration: none;
+}
+
+.link:visited {
+  color: black;
+}
+
+
+.welcome {
+  align-items: center;
+  color: rgb(60, 60, 60);
+  display: flex;
+  font-size: 12px;
+  font-weight: 700;
+  gap: 10px;
+}
+
+.logout {
+  font-size: 10px;
+  text-decoration: none;
+}
+
+
+.logout:visited {
+  color: rgb(60, 60, 60);
+}
+
+.link:hover, .logout:hover {
+  color: red;
+}

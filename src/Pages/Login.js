@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import Carregando from '../Components/Carregando';
 import { createUser } from '../services/userAPI';
+import './Login.css';
 
 class Login extends Component {
   constructor() {
@@ -45,7 +46,8 @@ class Login extends Component {
   render() {
     const { isButtonDisable, nameInput, loading, buttonActivated } = this.state;
     return (
-      <div data-testid="page-login">
+      <div data-testid="page-login" className="loginPage">
+        <h1>Faça Login</h1>
         <form>
           <label htmlFor="nameInput">
             <input
@@ -55,6 +57,7 @@ class Login extends Component {
               name="nameInput"
               onChange={ this.handleChange }
               value={ nameInput }
+              placeholder="Digite seu nome"
             />
             <button
               data-testid="login-submit-button"

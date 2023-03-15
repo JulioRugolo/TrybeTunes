@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 import Carregando from './Carregando';
+import './Header.css';
 
 class Header extends Component {
   constructor() {
@@ -20,14 +21,36 @@ class Header extends Component {
   render() {
     const { getUserReturn, user } = this.state;
     return (
-      <header data-testid="header-component">
-        <section data-testid="header-user-name">
-          {getUserReturn ? user : <Carregando />}
+      <header data-testid="header-component" className="header">
+        <section className="navbar">
+          <Link
+            to="/search"
+            data-testid="link-to-search"
+            className="link"
+          >
+            Search
+
+          </Link>
+          <Link
+            to="/favorites"
+            data-testid="link-to-favorites"
+            className="link"
+          >
+            Favorites
+
+          </Link>
+          <Link
+            to="/profile"
+            data-testid="link-to-profile"
+            className="link"
+          >
+            Profile
+
+          </Link>
         </section>
-        <section>
-          <Link to="/search" data-testid="link-to-search">Search</Link>
-          <Link to="/favorites" data-testid="link-to-favorites">Favorites</Link>
-          <Link to="/profile" data-testid="link-to-profile">Profile</Link>
+        <section data-testid="header-user-name" className="welcome">
+          {getUserReturn ? `Olá, ${user}!` : <Carregando />}
+          <Link to="/" className="logout">(logout)</Link>
         </section>
       </header>
     );

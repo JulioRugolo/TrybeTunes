@@ -1,0 +1,20 @@
+.musics {
+  align-items: center;
+  background-color: rgb(61, 60, 60);
+  border-radius: 20px;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.trackName {
+  width: 200px;
+}
+
+.player {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+}
