@@ -34,7 +34,7 @@ class Profile extends Component {
                   <Link to="/profile/edit" className="editButton">Editar perfil</Link>
                 </div>
                 <div className="nome">
-                  <p>{name}</p>
+                  <h1>{name}</h1>
                   <p>{email}</p>
                   <p>{description}</p>
                 </div>

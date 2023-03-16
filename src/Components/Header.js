@@ -1,25 +1,25 @@
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
-// import { getUser } from '../services/userAPI';
-// import Carregando from './Carregando';
+import { getUser } from '../services/userAPI';
+import Carregando from './Carregando';
 import './Header.css';
 
 class Header extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     getUserReturn: false,
-  //     user: '',
-  //   };
-  // }
+  constructor() {
+    super();
+    this.state = {
+      getUserReturn: false,
+      user: '',
+    };
+  }
 
-  // async componentDidMount() {
-  //   const response = await getUser();
-  //   this.setState({ getUserReturn: true, user: response.name });
-  // }
+  async componentDidMount() {
+    const response = await getUser();
+    this.setState({ getUserReturn: true, user: response.name });
+  }
 
   render() {
-    // const { getUserReturn, user } = this.state;
+    const { getUserReturn, user } = this.state;
     return (
       <header data-testid="header-component" className="header">
         <section className="navbar">
@@ -48,10 +48,10 @@ class Header extends Component {
 
           </Link>
         </section>
-        {/* <section data-testid="header-user-name" className="welcome">
-          {getUserReturn ? `Olá, ${user} !` : <Carregando />}
+        <section data-testid="header-user-name" className="welcome">
+          {getUserReturn ? user : <Carregando />}
           <Link to="/" className="logout">(logout)</Link>
-        </section> */}
+        </section>
       </header>
     );
   }
