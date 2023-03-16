@@ -7,40 +7,42 @@ import Carregando from '../Components/Carregando';
 
 class Profile extends Component {
   state = {
-    userInfo: {},
+    user: {},
     loading: false,
   };
 
   async componentDidMount() {
     this.setState({ loading: true });
     const user = await getUser();
-    this.setState({ userInfo: user, loading: false });
+    this.setState({ user, loading: false });
   }
 
   render() {
-    const { loading, userInfo: { name, email, image, description } } = this.state;
+    const { loading, user: { name, email, image, description } } = this.state;
     return (
-      <div data-testid="page-profile" className="profile">
+      <>
         <Header />
-        <div className="fullProfile">
+        <div data-testid="page-profile" className="profile">
           { loading ? <Carregando /> : (
-            <div>
-              <h1>
-                Seu perfil
-              </h1>
-              <div className="pictureAndEdit">
-                <img src={ image } alt={ name } />
-                <Link to="/profile/edit" className="editButton">Editar perfil</Link>
-              </div>
-              <div className="nome">
-                <h1>{name}</h1>
-                <p>{email}</p>
-                <p>{description}</p>
+            <div className="fullProfile">
+              <div>
+                <p>
+                  Seu perfil
+                </p>
+                <div className="pictureAndEdit">
+                  <img data-testid="profile-image" src={ image } alt={ name } />
+                  <Link to="/profile/edit" className="editButton">Editar perfil</Link>
+                </div>
+                <div className="nome">
+                  <p>{name}</p>
+                  <p>{email}</p>
+                  <p>{description}</p>
+                </div>
               </div>
             </div>
           )}
         </div>
-      </div>
+      </>
     );
   }
 }

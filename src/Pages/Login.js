@@ -38,8 +38,9 @@ class Login extends Component {
   submitButton = async (event) => {
     event.preventDefault();
     const { nameInput } = this.state;
+    const user = { name: nameInput };
     this.setState({ buttonActivated: true });
-    await createUser({ name: nameInput });
+    await createUser(user);
     this.setState({ loading: false });
   };
 
