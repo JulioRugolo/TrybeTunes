@@ -1,0 +1,40 @@
+.profile {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  justify-content: center;
+}
+
+.fullProfile {
+  background-color: aliceblue;
+  border-radius: 20px;
+  color: black;
+  padding: 50px 100px;
+}
+
+.pictureAndEdit {
+  align-items: center;
+  background-image: white;
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+}
+
+.pictureAndEdit img {
+  border-radius: 50%;
+  width: 100px;
+}
+
+.editButton {
+  align-items: center;
+  background-color: black;
+  border-radius: 20px;
+  color: rgb(104, 201, 0);
+  display: flex;
+  font-weight: 700;
+  height: 30px;
+  justify-content: center;
+  padding: 8px;
+  text-decoration: none;
+}
